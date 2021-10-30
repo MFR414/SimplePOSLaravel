@@ -21,3 +21,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware();
+
+Route::name('admins.')->prefix('admin')->group(function () {
+
+    require_once __DIR__.'/web/admin/users.php';
+});
