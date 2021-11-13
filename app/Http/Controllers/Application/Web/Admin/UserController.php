@@ -6,9 +6,16 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use View;
 
 class UserController extends Controller
 {
+
+    public function __construct()
+    {
+        View::share('active_page', 'users');
+    }
+
     /**
      * Display a listing of the resource.
      *

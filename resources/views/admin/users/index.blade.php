@@ -1,45 +1,45 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="title-block">
-    <h1 class="title">User Management</h1>
-    <p class='title-description'>Manage users who will have be able to control all aspects of the application.</p>
-</div>
+    <div class="title-block">
+        <h1 class="title">User Management</h1>
+        <p class='title-description'>Manage users who will have be able to control all aspects of the application.</p>
+    </div>
 
-@if(Session::has('success_message'))
-    <div class="card card-success" style='margin-bottom: 20px'>
-        <div class="card-header">
-            <div class="header-block">
-                <p class="title" style='color: white'>Success</p>
+    @if(Session::has('success_message'))
+        <div class="card card-success" style='margin-bottom: 20px'>
+            <div class="card-header">
+                <div class="header-block">
+                    <p class="title" style='color: white'>Success</p>
+                </div>
+            </div>
+            <div class="card-block">
+                {{ Session::get('success_message') }}
             </div>
         </div>
-        <div class="card-block">
-            {{ Session::get('success_message') }}
-        </div>
-    </div>
-@endif
+    @endif
 
-@if(Session::has('error_message'))
-    <div class="card card-danger" style='margin-bottom: 20px'>
-        <div class="card-header">
-            <div class="header-block">
-                <p class="title" style='color: white'>Error</p>
+    @if(Session::has('error_message'))
+        <div class="card card-danger" style='margin-bottom: 20px'>
+            <div class="card-header">
+                <div class="header-block">
+                    <p class="title" style='color: white'>Error</p>
+                </div>
+            </div>
+            <div class="card-block">
+                {{ Session::get('error_message') }}
             </div>
         </div>
-        <div class="card-block">
-            {{ Session::get('error_message') }}
-        </div>
-    </div>
-@endif
+    @endif
 
     <section class="section">
-        <a href="{{ route('admins.users.create') }}" class="btn btn-primary">Create User</a>
+        <a href="{{ route('admins.users.create') }}" class="btn btn-primary mb-4">Create User</a>
     </section>
 
     <section class="section">
         <div class="row">
             <div class="col-sm-12">
-                <div class="card">
+                <div class="card p-4">
                     <div class="card-block">
                         <div class="card-title-block">
                             <h3 class="title">Search Users</h3>
@@ -77,10 +77,10 @@
             </div>
         </div>
     </section>
-    <section class="section">
+    <section class="section mt-2">
         <div class="row">
             <div class="col-sm-12">
-                <div class="card">
+                <div class="card p-4">
                     <div class="card-block">
                         <div class="card-title-block">
                             <h3 class="title">Users</h3>
