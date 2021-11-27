@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -48,10 +49,15 @@ class LoginController extends Controller
         ]);
 
         if(auth()->attempt(array('email' => $input['email'],'password' => $input['password']))){
+            $user = User::where('email', $request->email)->first();
             if(auth()->user()->roles == 'Admin'){
-                return view('admin.home');
+                return view('admin.home', [
+                    'user' => $user
+                ]);
             }elseif(auth()->user()->roles == 'Owner'){
-                return view('owner.home');
+                return view('owner.home', [
+                    'user' => $user
+                ]);
             }
         }
     }
